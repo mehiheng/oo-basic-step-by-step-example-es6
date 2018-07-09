@@ -3,6 +3,9 @@ export default class Class {
     this.number=number;
   }
   getDisplayName(){
-    return "Class "+this.number;
+    return `Class ${this.number}`;
+  }
+  equal(klass){
+    return this.number===klass.number;
   }
 }

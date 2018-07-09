@@ -1,27 +1,20 @@
-import Person from "./person.js";
-import Class from "./class.js";
-import Student from "./student.js";
 
+import Person from "./person.js";
 export default class Teacher extends Person {
   constructor(name,age,klass) {
     super(name,age);
     this.klass=klass;
   }
-
   introduce(){
-    let classNum="No Class";
-    if (this.klass) {
-      classNum=this.klass.getDisplayName();
-    }
-    return super.introduce()+" I am a Teacher. I teach "+classNum+".";
+    let classString=(this.klass===undefined
+      ?"No Class"
+      :`${this.klass.getDisplayName()}`);
+    return `${super.introduce()} I am a Teacher. I teach ${classString}.`;
   }
-
   introduceWith(student){
-    let isTeach="teach";
-    if (this.klass!==student.klass) {
-      isTeach="don't teach";
-    }
-    return super.introduce()+" I am a Teacher. I "+isTeach+" "+student.name+".";
+    let isTeach=(this.klass.equal(student.klass)
+      ?"teach"
+      :"don't teach");
+    return `${super.introduce()} I am a Teacher. I ${isTeach} ${student.name}.`;
   }
-
 }

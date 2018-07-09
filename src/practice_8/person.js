@@ -4,7 +4,10 @@ export default class Person {
     this.name=name;
     this.age=age;
   }
+  basic_introduce(){
+    return `My name is ${this.name}. I am ${this.age} years old.`;
+  }
   introduce(){
-    return "My name is "+this.name+". I am "+this.age+" years old.";
+    return this.basic_introduce();
   }
 }

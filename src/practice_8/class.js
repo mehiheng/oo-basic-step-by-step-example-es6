@@ -3,9 +3,10 @@ export default class Class {
     this.number=number;
   }
   getDisplayName(){
-    return "Class "+this.number;
+    return `Class ${this.number}`;
   }
-  assignLeader(student){
-    this.leader=student;
+  equal(klass){
+    return this.number===klass.number;
   }
+  assignLeader(){}
 }
