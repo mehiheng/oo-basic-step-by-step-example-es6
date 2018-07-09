@@ -7,18 +7,21 @@ export default class Teacher extends Person {
     super(name,age);
     this.klass=klass;
   }
+
   introduce(){
+    let classNum="No Class";
     if (this.klass) {
-      return super.introduce()+" I am a Teacher. I teach "+this.klass.getDisplayName()+".";
-    }else{
-      return super.introduce()+" I am a Teacher. I teach No Class.";
+      classNum=this.klass.getDisplayName();
     }
+    return super.introduce()+" I am a Teacher. I teach "+classNum+".";
   }
+
   introduceWith(student){
-    if (this.klass===student.klass) {
-      return super.introduce()+" I am a Teacher. I teach "+student.name+".";
-    }else {
-      return super.introduce()+" I am a Teacher. I don't teach "+student.name+".";
+    let isTeach="teach";
+    if (this.klass!==student.klass) {
+      isTeach="don't teach";
     }
+    return super.introduce()+" I am a Teacher. I "+isTeach+" "+student.name+".";
   }
+
 }
